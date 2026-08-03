@@ -26,14 +26,14 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                       "Login",
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text("You must login to continue!"),
+                    const Text("You must login to continue!"),
 
                     const SizedBox(height: 50),
 
@@ -72,12 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                           print("Tombol di tekan!");
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(
-                            255,
-                            255,
-                            187,
-                            0,
-                          ),
+                          backgroundColor: Colors.amber,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -110,6 +105,14 @@ class _LoginPageState extends State<LoginPage> {
                               visualDensity: const VisualDensity(
                                 horizontal: -4,
                               ),
+                              // fillColor: WidgetStateProperty.resolveWith<Color>(
+                              //   (states) {
+                              //     if (states.contains(WidgetState.selected)) {
+                              //       return Colors.amber;
+                              //     }
+                              //     return Colors.white;
+                              //   },
+                              // ),
                             ),
                             const Text(
                               "Remember Me",
