@@ -12,6 +12,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool rememberMe = false;
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +22,6 @@ class _LoginPageState extends State<LoginPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 45),
             child: Card(
-              // color: Colors.blue[50],
               child: Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: Column(
@@ -37,54 +38,65 @@ class _LoginPageState extends State<LoginPage> {
 
                     const SizedBox(height: 50),
 
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "E-Mail",
-                        hintText: "Enter your e-mail",
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        hintText: "Enter your Password",
-                        prefixIcon: Icon(Icons.lock),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 30),
-
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          print("Tombol di tekan!");
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.amber,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "E-Mail",
+                              hintText: "Enter your e-mail",
+                              prefixIcon: const Icon(Icons.mail),
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                        child: const Text(
-                          "Masuk",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+
+                          const SizedBox(height: 20),
+
+                          TextFormField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelText: "Password",
+                              hintText: "Enter your Password",
+                              prefixIcon: const Icon(Icons.lock),
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+
+                          const SizedBox(height: 30),
+
+                          SizedBox(
+                            width: double.infinity,
+                            height: 50,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                print("Tombol di tekan!");
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.amber,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                              child: const Text(
+                                "Masuk",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 

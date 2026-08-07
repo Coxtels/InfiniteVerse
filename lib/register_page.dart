@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/login_page.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +20,7 @@ class RegisterPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Card(
               child: Padding(
-                padding: EdgeInsets.all(32),
+                padding: const EdgeInsets.all(32),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -27,59 +34,72 @@ class RegisterPage extends StatelessWidget {
 
                     const SizedBox(height: 50),
 
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "Username",
-                        hintText: "Enter your username",
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "E-Mail",
-                        hintText: "Enter your e-mail",
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        hintText: "Enter your password",
-                        prefixIcon: Icon(Icons.lock),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 30),
-
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.amber,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "Username",
+                              hintText: "Enter your username",
+                              prefixIcon: const Icon(Icons.person),
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                        child: const Text("CREATE ACCOUNT"),
+
+                          const SizedBox(height: 20),
+
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "E-Mail",
+                              hintText: "Enter your e-mail",
+                              prefixIcon: const Icon(Icons.mail),
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 20),
+
+                          TextFormField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelText: "Password",
+                              hintText: "Enter your password",
+                              prefixIcon: const Icon(Icons.lock),
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 30),
+
+                          SizedBox(
+                            width: double.infinity,
+                            height: 50,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.amber,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                              child: const Text("CREATE ACCOUNT"),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 
@@ -95,15 +115,10 @@ class RegisterPage extends StatelessWidget {
 
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginPage(),
-                              ),
-                            );
+                            Navigator.pop(context);
                           },
                           style: TextButton.styleFrom(
-                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
                             minimumSize: Size.zero,
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
