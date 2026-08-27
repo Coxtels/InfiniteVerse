@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/home_page.dart';
+import 'package:infinite_verse/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());

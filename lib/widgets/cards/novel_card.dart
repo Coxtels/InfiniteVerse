@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/detail_novel_page.dart';
-import 'dart:math' as math;
+import 'package:infinite_verse/pages/detail_novel_page.dart';
 
 class NovelCard extends StatelessWidget {
-  final math.Random random;
+  final String imageUrl;
   final String title;
 
-  const NovelCard({super.key, required this.random, required this.title});
+  const NovelCard({super.key, required this.imageUrl, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +27,6 @@ class NovelCard extends StatelessWidget {
             margin: const EdgeInsets.only(right: 10, bottom: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
-
-              color: Color.fromARGB(
-                255,
-                random.nextInt(256),
-                random.nextInt(256),
-                random.nextInt(256),
-              ),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.1),
@@ -43,6 +35,13 @@ class NovelCard extends StatelessWidget {
                   offset: const Offset(0, 0),
                 ),
               ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
 
