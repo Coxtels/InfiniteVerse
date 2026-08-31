@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/pages/detail_novel_page.dart';
+import 'package:infinite_verse/pages/detail_novel_card_page.dart';
 
 class NovelCard extends StatelessWidget {
   final String imageUrl;
@@ -16,7 +16,7 @@ class NovelCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const DetailNovelPage()),
+          MaterialPageRoute(builder: (context) => const DetailNovelCardPage()),
         );
       },
       child: Column(
@@ -41,6 +41,11 @@ class NovelCard extends StatelessWidget {
               child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Center(
+                    child: Icon(Icons.wifi_off, color: Colors.grey, size: 40),
+                  );
+                },
               ),
             ),
           ),

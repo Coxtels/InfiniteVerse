@@ -6,8 +6,10 @@
 *.swp
 .buildlog/
 .history
-assets/
 
+# git ignore folder / file yang aku sendiri lakukan
+assets/
+/.agent.md
 
 
 # Flutter repo-specific

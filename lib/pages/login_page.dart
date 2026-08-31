@@ -117,14 +117,6 @@ class _LoginPageState extends State<LoginPage> {
                               visualDensity: const VisualDensity(
                                 horizontal: -4,
                               ),
-                              // fillColor: WidgetStateProperty.resolveWith<Color>(
-                              //   (states) {
-                              //     if (states.contains(WidgetState.selected)) {
-                              //       return Colors.amber;
-                              //     }
-                              //     return Colors.white;
-                              //   },
-                              // ),
                             ),
                             const Text(
                               "Remember Me",
