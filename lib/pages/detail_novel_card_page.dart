@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/widgets/cards/detail_novel_card.dart';
+import 'package:infinite_verse/models/novel.dart';
+import 'package:infinite_verse/widgets/cards/detail_character.dart';
 import 'package:infinite_verse/widgets/globals/custom_button.dart';
 
 class DetailNovelCardPage extends StatefulWidget {
-  const DetailNovelCardPage({super.key});
+  final Novel novel;
+
+  const DetailNovelCardPage({super.key, required this.novel});
 
   @override
   State<DetailNovelCardPage> createState() => _DetailNovelCardPageState();
@@ -27,7 +30,7 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
                       height: 400,
                       width: double.infinity,
                       child: Image.network(
-                        "https://placehold.net/800x600.png",
+                        widget.novel.coverImageUrl,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return const Center(
@@ -60,54 +63,75 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
                   ],
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 170,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Theme.of(context).colorScheme.surface,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.16),
-                          blurRadius: 4,
-                          spreadRadius: 0,
-                          offset: Offset(0, 1),
+                Container(
+                  margin: const EdgeInsets.all(15.0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Theme.of(context).colorScheme.surface,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.16),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                        offset: Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 15.0,
+                      horizontal: 13.0,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      spacing: 5.0,
+                      children: [
+                        Text(
+                          widget.novel.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+
+                        Text(
+                          widget.novel.synopsis,
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 15.0,
-                        horizontal: 13.0,
-                      ),
-                      child: Text("Satanael"),
                     ),
                   ),
                 ),
 
                 SizedBox(
-                  height: 165,
+                  height: 170,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 15.0,
                       vertical: 10.0,
                     ),
-                    itemCount: 10,
+                    itemCount: widget.novel.characters.length,
                     itemBuilder: (context, index) {
-                      return DetailNovelCard(
-                        imageUrl: "https://placehold.net/shape-800x600.png",
-                        nameChar: "Ichigo",
+                      final character = widget.novel.characters[index];
+                      return DetailCharacter(
+                        imageUrl: character.imageUrl,
+                        nameChar: character.name,
                       );
                     },
                   ),
                 ),
 
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15.0),
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 15.0),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 5.0,
+                    horizontal: 10.0,
+                  ),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(10.0),
@@ -129,11 +153,48 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
                           icon: Icon(Icons.person, size: 30),
                         ),
                       ),
+
+                      SizedBox(
+                        width: 180,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              spacing: 5.0,
+                              children: [
+                                Text(
+                                  widget.novel.author.name,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "${widget.novel.author.followerCount} followers",
+                                  style: TextStyle(fontSize: 13),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+
+                            Text(
+                              widget.novel.author.bio,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          shadowColor: WidgetStateColor.transparent,
+                        ),
+                        child: Text("Follow"),
+                      ),
                     ],
                   ),
                 ),
 
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           ),
@@ -146,7 +207,7 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
               top: false,
               child: Container(
                 height: 65,
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 decoration: BoxDecoration(
                   color: Colors.amber,
                   borderRadius: BorderRadius.circular(50),

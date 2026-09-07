@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DetailNovelCard extends StatelessWidget {
+class DetailCharacter extends StatelessWidget {
   final String imageUrl;
   final String nameChar;
 
-  const DetailNovelCard({
+  const DetailCharacter({
     super.key,
     required this.imageUrl,
     required this.nameChar,
@@ -46,11 +46,7 @@ class DetailNovelCard extends StatelessWidget {
 
                 Material(
                   color: Colors.transparent,
-                  child: InkWell(
-                    onTap: () {
-                      print("Test");
-                    },
-                  ),
+                  child: InkWell(onTap: () {}),
                 ),
               ],
             ),
