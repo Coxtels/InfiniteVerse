@@ -8,7 +8,7 @@
 .history
 
 # git ignore folder / file yang aku sendiri lakukan
-assets/
+# assets/
 /.agent.md
 
 
