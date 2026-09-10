@@ -3,6 +3,7 @@ import 'package:infinite_verse/models/character.dart';
 import 'package:infinite_verse/models/novel.dart';
 
 final Author sampleAuthor = Author(
+  authorId: 1,
   name: "@Febri",
   imageUrl: "https://placehold.net/avatar.png",
   bio: "try again. again.",
@@ -10,6 +11,7 @@ final Author sampleAuthor = Author(
 );
 
 final Novel sampleNovel = Novel(
+  novelId: 1,
   title: "Manusia Setengah Harimau Yang Sedang Mandi",
   coverImageUrl: "https://picsum.photos/id/1/200/300",
   synopsis: "Bla bla bla ble ble ble blu blu blu blu hap",
@@ -20,12 +22,14 @@ final Novel sampleNovel = Novel(
   author: sampleAuthor,
   characters: [
     Character(
+      characterId: 1,
       name: "Ichigo",
       imageUrl: "https://placehold.net/shape-800x600.png",
       description: "Pemuda berambut oranye yang punya kekuatan harimau.",
     ),
 
     Character(
+      characterId: 2,
       name: "Rukia",
       imageUrl: "https://placehold.net/shape-800x600.png",
       description: "Teman Ichigo yang selalu mendampinginya.",
@@ -36,6 +40,7 @@ final Novel sampleNovel = Novel(
 final List<Novel> daftarNovel = [
   sampleNovel,
   Novel(
+    novelId: 2,
     title: "Re:Zero",
     coverImageUrl: "https://picsum.photos/id/2/200/300",
     synopsis: "Seorang pemuda terjebak di dunia lain.",
@@ -43,6 +48,7 @@ final List<Novel> daftarNovel = [
     author: sampleAuthor,
     characters: [
       Character(
+        characterId: 3,
         name: "Subaru",
         imageUrl: "https://placehold.net/shape-800x600.png",
         description: "Pemuda yang bisa kembali dari kematian.",
@@ -50,6 +56,7 @@ final List<Novel> daftarNovel = [
     ],
   ),
   Novel(
+    novelId: 3,
     title: "Maou Gakuin",
     coverImageUrl: "https://picsum.photos/id/3/200/300",
     synopsis: "Raja Iblis bereinkarnasi setelah 2000 tahun.",
@@ -57,6 +64,7 @@ final List<Novel> daftarNovel = [
     author: sampleAuthor,
     characters: [
       Character(
+        characterId: 4,
         name: "Anos",
         imageUrl: "https://placehold.net/shape-800x600.png",
         description: "Raja Iblis yang terlalu kuat.",
@@ -64,6 +72,7 @@ final List<Novel> daftarNovel = [
     ],
   ),
   Novel(
+    novelId: 4,
     title: "Tate No Yushaa",
     coverImageUrl: "https://picsum.photos/id/4/200/300",
     synopsis: "Seorang ksatria tameng, yang di khianati oleh negri nya sendiri",
@@ -71,6 +80,7 @@ final List<Novel> daftarNovel = [
     author: sampleAuthor,
     characters: [
       Character(
+        characterId: 5,
         name: "Yushaa",
         imageUrl: "https://placehold.net/shape-800x600.png",
         description: "Yushaa yang pantang menyerah",
