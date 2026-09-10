@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:infinite_verse/models/character.dart';
 
 class DetailCharacter extends StatelessWidget {
-  final String imageUrl;
-  final String nameChar;
+  final Character character;
 
-  const DetailCharacter({
-    super.key,
-    required this.imageUrl,
-    required this.nameChar,
-  });
+  const DetailCharacter({super.key, required this.character});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +31,7 @@ class DetailCharacter extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 Image.network(
-                  imageUrl,
+                  character.imageUrl,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return const Center(
@@ -59,7 +55,7 @@ class DetailCharacter extends StatelessWidget {
             width: 100,
             child: Center(
               child: Text(
-                nameChar,
+                character.name,
                 style: TextStyle(fontWeight: FontWeight.w600),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
