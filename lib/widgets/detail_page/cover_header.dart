@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_verse/models/novel.dart';
 
-class DetailCoverHeader extends StatelessWidget {
+class CoverHeader extends StatelessWidget {
   final Novel novel;
 
-  const DetailCoverHeader({super.key, required this.novel});
+  const CoverHeader({super.key, required this.novel});
 
   @override
   Widget build(BuildContext context) {

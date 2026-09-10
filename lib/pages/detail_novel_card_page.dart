@@ -3,8 +3,9 @@ import 'package:infinite_verse/models/novel.dart';
 import 'package:infinite_verse/widgets/cards/detail_character.dart';
 import 'package:infinite_verse/widgets/detail_page/author_card.dart';
 import 'package:infinite_verse/widgets/detail_page/detail_bottom_action_bar.dart';
-import 'package:infinite_verse/widgets/detail_page/detail_cover_header.dart';
-import 'package:infinite_verse/widgets/detail_page/detail_info_card.dart';
+import 'package:infinite_verse/widgets/detail_page/cover_header.dart';
+import 'package:infinite_verse/widgets/detail_page/detail_information.dart';
+import 'package:infinite_verse/widgets/detail_page/info_card.dart';
 
 class DetailNovelCardPage extends StatefulWidget {
   final Novel novel;
@@ -24,11 +25,11 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
           SingleChildScrollView(
             child: Column(
               children: [
-                DetailCoverHeader(novel: widget.novel),
+                CoverHeader(novel: widget.novel),
 
                 const SizedBox(height: 15),
 
-                DetailInfoCard(novel: widget.novel),
+                InfoCard(novel: widget.novel),
 
                 const SizedBox(height: 15),
 
@@ -49,28 +50,7 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
 
                 const SizedBox(height: 5),
 
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15.0),
-                  child: ExpansionTile(
-                    tilePadding: EdgeInsets.symmetric(horizontal: 1.0),
-                    splashColor: Colors.transparent,
-                    minTileHeight: 0.0,
-                    collapsedShape: const Border(),
-                    shape: const Border(),
-
-                    title: Text(
-                      "Informasi Detail",
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    children: [
-                      Text(
-                        "Plot",
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                      Text(widget.novel.plot),
-                    ],
-                  ),
-                ),
+                DetailInformation(novel: widget.novel),
 
                 const SizedBox(height: 200),
               ],

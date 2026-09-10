@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_verse/models/novel.dart';
 
-class DetailInfoCard extends StatelessWidget {
+class InfoCard extends StatelessWidget {
   final Novel novel;
 
-  const DetailInfoCard({super.key, required this.novel});
+  const InfoCard({super.key, required this.novel});
 
   @override
   Widget build(BuildContext context) {
