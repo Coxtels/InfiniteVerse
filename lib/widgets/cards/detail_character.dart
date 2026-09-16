@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_verse/models/character.dart';
+import 'package:infinite_verse/pages/info_character_page.dart';
+import 'package:infinite_verse/widgets/globals/cached_image.dart';
 
 class DetailCharacter extends StatelessWidget {
   final Character character;
@@ -30,19 +32,21 @@ class DetailCharacter extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.network(
-                  character.imageUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Center(
-                      child: Icon(Icons.wifi_off, color: Colors.grey, size: 40),
-                    );
-                  },
-                ),
+                CachedImage(imageUrl: character.imageUrl),
 
                 Material(
                   color: Colors.transparent,
-                  child: InkWell(onTap: () {}),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              InfoCharacterPage(character: character),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

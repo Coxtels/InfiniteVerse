@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_verse/models/novel.dart';
 import 'package:infinite_verse/widgets/cards/detail_character.dart';
-import 'package:infinite_verse/widgets/detail_page/author_card.dart';
+import 'package:infinite_verse/widgets/detail_page/profile_card.dart';
 import 'package:infinite_verse/widgets/detail_page/detail_bottom_action_bar.dart';
 import 'package:infinite_verse/widgets/detail_page/cover_header.dart';
-import 'package:infinite_verse/widgets/detail_page/detail_information.dart';
+import 'package:infinite_verse/widgets/detail_page/expandable_info_card.dart';
 import 'package:infinite_verse/widgets/detail_page/info_card.dart';
 
 class DetailNovelCardPage extends StatefulWidget {
@@ -25,11 +25,14 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
           SingleChildScrollView(
             child: Column(
               children: [
-                CoverHeader(novel: widget.novel),
+                CoverHeader(imageUrl: widget.novel.coverImageUrl),
 
                 const SizedBox(height: 15),
 
-                InfoCard(novel: widget.novel),
+                InfoCard(
+                  mainText: widget.novel.title,
+                  secondaryText: widget.novel.synopsis,
+                ),
 
                 const SizedBox(height: 15),
 
@@ -46,11 +49,27 @@ class _DetailNovelCardPageState extends State<DetailNovelCardPage> {
                   ),
                 ),
 
-                AuthorCard(author: widget.novel.author),
+                ProfileCard(
+                  name: widget.novel.author.name,
+                  bio: widget.novel.author.bio,
+                  subtitle: widget.novel.author.followerLabel,
+                  onFollow: () {},
+                ),
 
                 const SizedBox(height: 5),
 
-                DetailInformation(novel: widget.novel),
+                ExpandableInfoCard(
+                  title: "Detail Information",
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Plot",
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      Text(widget.novel.plot),
+                    ],
+                  ),
+                ),
 
                 const SizedBox(height: 200),
               ],

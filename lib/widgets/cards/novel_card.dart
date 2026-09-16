@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_verse/models/novel.dart';
 import 'package:infinite_verse/pages/detail_novel_card_page.dart';
+import 'package:infinite_verse/widgets/globals/cached_image.dart';
 
 class NovelCard extends StatelessWidget {
   final Novel novel;
@@ -31,15 +32,7 @@ class NovelCard extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.network(
-                  novel.coverImageUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Center(
-                      child: Icon(Icons.wifi_off, color: Colors.grey, size: 40),
-                    );
-                  },
-                ),
+                CachedImage(imageUrl: novel.coverImageUrl),
 
                 Material(
                   color: Colors.transparent,

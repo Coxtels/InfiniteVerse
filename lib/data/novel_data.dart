@@ -26,6 +26,7 @@ final Novel sampleNovel = Novel(
       name: "Ichigo",
       imageUrl: "https://placehold.net/shape-800x600.png",
       description: "Pemuda berambut oranye yang punya kekuatan harimau.",
+      creator: sampleAuthor,
     ),
 
     Character(
@@ -33,6 +34,7 @@ final Novel sampleNovel = Novel(
       name: "Rukia",
       imageUrl: "https://placehold.net/shape-800x600.png",
       description: "Teman Ichigo yang selalu mendampinginya.",
+      creator: sampleAuthor,
     ),
   ],
 );
@@ -52,6 +54,7 @@ final List<Novel> daftarNovel = [
         name: "Subaru",
         imageUrl: "https://placehold.net/shape-800x600.png",
         description: "Pemuda yang bisa kembali dari kematian.",
+        creator: sampleAuthor,
       ),
     ],
   ),
@@ -68,6 +71,7 @@ final List<Novel> daftarNovel = [
         name: "Anos",
         imageUrl: "https://placehold.net/shape-800x600.png",
         description: "Raja Iblis yang terlalu kuat.",
+        creator: sampleAuthor,
       ),
     ],
   ),
@@ -84,6 +88,7 @@ final List<Novel> daftarNovel = [
         name: "Yushaa",
         imageUrl: "https://placehold.net/shape-800x600.png",
         description: "Yushaa yang pantang menyerah",
+        creator: sampleAuthor,
       ),
     ],
   ),

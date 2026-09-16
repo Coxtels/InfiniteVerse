@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/models/novel.dart';
 
 class InfoCard extends StatelessWidget {
-  final Novel novel;
+  final String mainText;
+  final String secondaryText;
 
-  const InfoCard({super.key, required this.novel});
+  const InfoCard({super.key, required this.mainText, required this.secondaryText});
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +30,13 @@ class InfoCard extends StatelessWidget {
           spacing: 5.0,
           children: [
             Text(
-              novel.title,
+              mainText,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
 
-            Text(novel.synopsis, maxLines: 4, overflow: TextOverflow.ellipsis),
+            Text(secondaryText, maxLines: 4, overflow: TextOverflow.ellipsis),
           ],
         ),
       ),
