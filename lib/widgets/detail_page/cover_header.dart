@@ -1,27 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/models/novel.dart';
+import 'package:infinite_verse/widgets/globals/cached_image.dart';
 
 class CoverHeader extends StatelessWidget {
-  final Novel novel;
+  final String imageUrl;
+  final double height;
 
-  const CoverHeader({super.key, required this.novel});
+  const CoverHeader({super.key, required this.imageUrl, this.height = 400});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         SizedBox(
-          height: 400,
+          height: height,
           width: double.infinity,
-          child: Image.network(
-            novel.coverImageUrl,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) {
-              return const Center(
-                child: Icon(Icons.wifi_off, color: Colors.grey, size: 40),
-              );
-            },
-          ),
+          child: CachedImage(imageUrl: imageUrl),
         ),
 
         Positioned(

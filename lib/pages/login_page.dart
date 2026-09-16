@@ -77,9 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
-                              onPressed: () {
-                                print("Tombol di tekan!");
-                              },
+                              onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.amber,
                                 foregroundColor: Colors.white,
@@ -163,9 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Expanded(
                           child: InkWell(
-                            onTap: () {
-                              print("Login Google");
-                            },
+                            onTap: () {},
                             child: Container(
                               decoration: BoxDecoration(
                                 border: Border.all(
@@ -186,9 +182,7 @@ class _LoginPageState extends State<LoginPage> {
 
                         Expanded(
                           child: InkWell(
-                            onTap: () {
-                              print("Login Apple loh ya");
-                            },
+                            onTap: () {},
                             child: Container(
                               decoration: BoxDecoration(
                                 border: Border.all(

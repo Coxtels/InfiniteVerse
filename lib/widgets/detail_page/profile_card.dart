@@ -1,10 +1,21 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:infinite_verse/models/author.dart';
 
-class AuthorCard extends StatelessWidget {
-  final Author author;
+class ProfileCard extends StatelessWidget {
+  final String name;
+  final String? imageUrl;
+  final String bio;
+  final String? subtitle;
+  final VoidCallback? onFollow;
 
-  const AuthorCard({super.key, required this.author});
+  const ProfileCard({
+    super.key,
+    required this.name,
+    required this.bio,
+    this.imageUrl,
+    this.subtitle,
+    this.onFollow,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +38,13 @@ class AuthorCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
-            child: IconButton.filled(
-              onPressed: () {},
-              icon: Icon(Icons.person, size: 30),
+            child: CircleAvatar(
+              radius: 24,
+              backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+              backgroundImage: imageUrl != null
+                  ? CachedNetworkImageProvider(imageUrl!)
+                  : null,
+              child: imageUrl == null ? const Icon(Icons.person) : null,
             ),
           ),
 
@@ -41,25 +56,23 @@ class AuthorCard extends StatelessWidget {
                 Row(
                   spacing: 5.0,
                   children: [
-                    Text(
-                      author.name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "${author.followerCount} followers",
-                      style: TextStyle(fontSize: 13),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
+                    if (subtitle != null)
+                      Text(
+                        subtitle!,
+                        style: TextStyle(fontSize: 13),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                   ],
                 ),
 
-                Text(author.bio, maxLines: 2, overflow: TextOverflow.ellipsis),
+                Text(bio, maxLines: 2, overflow: TextOverflow.ellipsis),
               ],
             ),
           ),
 
           ElevatedButton(
-            onPressed: () {},
+            onPressed: onFollow ?? () {},
             style: ButtonStyle(shadowColor: WidgetStateColor.transparent),
             child: Text("Follow"),
           ),

@@ -12,4 +12,8 @@ class Author {
     required this.bio,
     required this.followerCount,
   });
+
+  String get followerLabel {
+    return followerCount == 1 ? "1 follower" : "$followerCount followers";
+  }
 }
