@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:infinite_verse/pages/home_page.dart';
+import 'package:infinite_verse/pages/main_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
       ),
-      home: const HomePage(),
+      home: const MainPage(),
     );
   }
 }
