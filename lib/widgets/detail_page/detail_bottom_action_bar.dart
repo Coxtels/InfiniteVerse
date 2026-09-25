@@ -18,7 +18,7 @@ class _DetailBottomActionBarState extends State<DetailBottomActionBar> {
       height: 65,
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       decoration: BoxDecoration(
-        color: Colors.amber,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(50),
         boxShadow: [
           BoxShadow(
@@ -68,11 +68,14 @@ class _DetailBottomActionBarState extends State<DetailBottomActionBar> {
             height: 45,
             width: 200,
             borderRadius: 10.0,
-            backgroundColor: Colors.amberAccent,
+            backgroundColor: Theme.of(context).colorScheme.primary,
             onTap: () {},
             child: Text(
               "Start Now",
-              style: TextStyle(fontWeight: FontWeight.w500),
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                color: Theme.of(context).colorScheme.surface,
+              ),
             ),
           ),
         ],

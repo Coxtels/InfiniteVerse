@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber,
         title: Row(
           children: [
             Image.asset('assets/images/icon_apk.png', width: 40, height: 40),
