@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   // 1. Palet Warna Khusus Novel AI
-  static const Color scaffoldBg = Color(0xFFF9F7F2); // Putih Tulang Kertas Novel
+  static const Color scaffoldBg = Color(
+    0xFFF9F7F2,
+  ); // Putih Tulang Kertas Novel
   static const Color surface = Colors.white; // Putih Bersih (Kartu & Navbar)
-  static const Color textPrimary = Color(0xFF2C1810); // Coklat Espresso Gelap (Teks Utama & Icon)
-  static const Color textSecondary = Color(0xFF8D7B68); // Coklat Taupe (Sinopsis & Label Inaktif)
-  static const Color primaryAccent = Color(0xFFA31D1D); // Merah Crimson (Navbar onSelect & Aksen)
+  static const Color textPrimary = Color(
+    0xFF2C1810,
+  ); // Coklat Espresso Gelap (Teks Utama & Icon)
+  static const Color textSecondary = Color(
+    0xFF8D7B68,
+  ); // Coklat Taupe (Sinopsis & Label Inaktif)
+  static const Color primaryAccent = Color(
+    0xFFA31D1D,
+  ); // Merah Crimson (Navbar onSelect & Aksen)
 
   // 2. Konfigurasi Tema Terang (Light Theme)
   static ThemeData get lightTheme {
@@ -24,7 +32,7 @@ class AppTheme {
 
       // AppBar bersih menyatu dengan background putih tulang
       appBarTheme: const AppBarTheme(
-        backgroundColor: scaffoldBg,
+        backgroundColor: surface,
         foregroundColor: textPrimary,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -42,9 +50,13 @@ class AppTheme {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         iconTheme: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return const IconThemeData(color: primaryAccent); // Merah Crimson saat aktif
+            return const IconThemeData(
+              color: primaryAccent,
+            ); // Merah Crimson saat aktif
           }
-          return const IconThemeData(color: textSecondary); // Coklat Taupe saat inaktif
+          return const IconThemeData(
+            color: textSecondary,
+          ); // Coklat Taupe saat inaktif
         }),
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {

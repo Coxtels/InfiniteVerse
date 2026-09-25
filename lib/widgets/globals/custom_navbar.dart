@@ -28,7 +28,6 @@ class CustomNavbar extends StatelessWidget {
         child: NavigationBar(
           height: 65,
           elevation: 0,
-          backgroundColor: Theme.of(context).colorScheme.surface,
           selectedIndex: currentIndex,
           onDestinationSelected: onTap,
           destinations: const [
