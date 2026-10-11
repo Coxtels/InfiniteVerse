@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class ProfileActionCard extends StatelessWidget {
   final String title;
-  final String count;
   final IconData icon;
   final Color iconColor;
   final VoidCallback onTap;
@@ -10,7 +9,6 @@ class ProfileActionCard extends StatelessWidget {
   const ProfileActionCard({
     super.key,
     required this.title,
-    required this.count,
     required this.icon,
     required this.iconColor,
     required this.onTap,
@@ -62,14 +60,6 @@ class ProfileActionCard extends StatelessWidget {
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                         color: colorScheme.onSurface,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      count,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ],

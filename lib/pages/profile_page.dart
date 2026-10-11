@@ -98,38 +98,74 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 20),
 
               // 3. SizedBox yang menyimpan dua card: Bookmark & Like/Favorit
-              SizedBox(
-                height: 200,
-                child: Row(
-                  children: [
-                    // Card Bookmark
-                    Expanded(
-                      child: ProfileActionCard(
-                        title: "Bookmark",
-                        count: "12 Novel",
-                        icon: Icons.bookmark,
-                        iconColor: colorScheme.primary,
-                        onTap: () {
-                          // Navigasi atau filter bookmark
-                        },
-                      ),
-                    ),
-                    const SizedBox(width: 14),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 200,
+                    child: Row(
+                      children: [
+                        // Card Bookmark
+                        Expanded(
+                          child: ProfileActionCard(
+                            title: "Bookmark",
+                            icon: Icons.bookmark,
+                            iconColor: Colors.yellow,
+                            onTap: () {
+                              // Navigasi atau filter bookmark
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 14),
 
-                    // Card Like / Favorite
-                    Expanded(
-                      child: ProfileActionCard(
-                        title: "Favorit",
-                        count: "24 Disukai",
-                        icon: Icons.favorite,
-                        iconColor: Colors.redAccent,
-                        onTap: () {
-                          // Navigasi atau filter favorit
-                        },
-                      ),
+                        // Card Like / Favorite
+                        Expanded(
+                          child: ProfileActionCard(
+                            title: "Favorit",
+                            icon: Icons.favorite,
+                            iconColor: Colors.redAccent,
+                            onTap: () {
+                              // Navigasi atau filter favorit
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+
+                  SizedBox(height: 14),
+
+                  SizedBox(
+                    height: 200,
+                    child: Row(
+                      children: [
+                        // Card Bookmark
+                        Expanded(
+                          child: ProfileActionCard(
+                            title: "History",
+                            icon: Icons.history,
+                            iconColor: Colors.black,
+                            onTap: () {
+                              // Navigasi atau filter bookmark
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 14),
+
+                        // Card Like / Favorite
+                        Expanded(
+                          child: ProfileActionCard(
+                            title: "My Novel Creation",
+                            icon: Icons.book,
+                            iconColor: Colors.indigo,
+                            onTap: () {
+                              // Navigasi atau filter favorit
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
 
               // Spasi bawah agar konten tidak tertutup oleh floating navbar
